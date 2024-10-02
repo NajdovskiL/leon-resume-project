@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../UserContext/UserContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope, faLocation, faCity, faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, faCity, faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
 import "./Title.css";
 
 const Title = () => {

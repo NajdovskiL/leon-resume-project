@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LogInWrapper = styled.div`
 
@@ -57,7 +57,7 @@ const LogIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const [isPasswordVisible] = useState(false)
 
 
   const OnlogInSubmit = (e) => {

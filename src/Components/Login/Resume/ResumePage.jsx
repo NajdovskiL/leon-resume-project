@@ -24,7 +24,6 @@ const ResumePage = () => {
             const imgData = canvas.toDataURL("image/png");
 
             const imgWidth = 210; // A4 page width in mm
-            const pageHeight = 295; // A4 page height in mm
             const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
             // Ensure the content fits within the single page by scaling down

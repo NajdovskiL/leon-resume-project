@@ -1,6 +1,5 @@
 
 import React, { useState } from "react";
-import { Form, Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
@@ -84,25 +83,25 @@ const Card = () => {
     setAction("Log In");
   };
 
-    return(
-        <CardWrapper>
-          <div className="card-box" >
-           <div className="title-box">
-                <div className={action === "Sign Up" ? "sign-box" : "grey"} onClick={handleSignUpClick}>
-                    <h4>SIGN UP</h4>
-                </div>
-                <div className={action === "Log In" ? "log-box" : "grey"} onClick={handleLogInClick}>
-                   <h4>LOGIN</h4>
-                </div>   
-            </div>
-            {action === "Sign Up" && <SignUp />}
-            {action === "Log In" &&  <LogIn />}
-        
-         </div>
-        </CardWrapper>
-       
-    )
- }
+  return (
+    <CardWrapper>
+      <div className="card-box" >
+        <div className="title-box">
+          <div className={action === "Sign Up" ? "sign-box" : "grey"} onClick={handleSignUpClick}>
+            <h4>SIGN UP</h4>
+          </div>
+          <div className={action === "Log In" ? "log-box" : "grey"} onClick={handleLogInClick}>
+            <h4>LOGIN</h4>
+          </div>
+        </div>
+        {action === "Sign Up" && <SignUp />}
+        {action === "Log In" && <LogIn />}
+
+      </div>
+    </CardWrapper>
+
+  )
+}
 
 
 

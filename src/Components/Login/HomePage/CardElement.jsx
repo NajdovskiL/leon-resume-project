@@ -60,7 +60,7 @@ const CardElement = props => {
   return (
     <CardWrapper>
       <div className="card">
-        <img src={props.img} alt="Card Image" className="card-image" />
+        <img src={props.img} alt="Card" className="card-image" />
         <div className="card-content">
           <h2 className="card-title">{props.title}</h2>
           <p className="card-description">{props.desc}</p>
