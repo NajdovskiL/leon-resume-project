@@ -9,13 +9,13 @@ import ResumePage from './Components/Login/Resume/ResumePage';
 function App() {
   return (
     <div className="App">
-     <Router>
-      <Routes>
-        <Route path='/login' element={<LogInPage />} />
-        <Route path='/home/:user' element={<HomePage/>} />
-        <Route path='/home/resume' element={<ResumePage />} />
-      </Routes>
-     </Router>
+      <Router>
+        <Routes>
+          <Route path='/' element={<LogInPage />} />
+          <Route path='/home/:user' element={<HomePage />} />
+          <Route path='/home/resume' element={<ResumePage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
