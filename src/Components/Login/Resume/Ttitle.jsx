@@ -5,6 +5,7 @@ import { faPhone, faEnvelope, faCity, faBirthdayCake } from '@fortawesome/free-s
 import styled from "styled-components";
 
 const TitleWrapper = styled.div`
+ font-family: Arial, sans-serif;
  display: flex;
   justify-content: space-between;
   align-items: center;

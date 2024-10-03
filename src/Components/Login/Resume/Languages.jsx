@@ -5,7 +5,7 @@ import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
 
 const LanguagesWrapper = styled.div`
-
+font-family: Arial, sans-serif;
 .languages-title {
   font-size: 24px;
   color: #333;
@@ -41,6 +41,33 @@ const LanguagesWrapper = styled.div`
   display: inline-block;
 }
 
+.action-icons {
+    display: none;
+    position: absolute;
+    right: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.action-icons .add,
+.action-icons .delete {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #25dac5;
+}
+
+.action-icons .delete {
+  color: red;
+}
+
+.action-icons .add:hover {
+  color: green;
+}
+
+.action-icons .delete:hover {
+  color: darkred;
+}
 `
 
 

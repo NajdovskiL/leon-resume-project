@@ -3,6 +3,7 @@ import UserContext from "../UserContext/UserContext";
 import styled from "styled-components";
 
 const EducationWrapper = styled.div`
+font-family: Arial, sans-serif;
 .education-title {
   font-size: 24px;
   color: #333;

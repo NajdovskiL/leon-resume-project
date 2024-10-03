@@ -286,7 +286,6 @@ const WorkExperience = () => {
 
     return (
         <WorkWrapper>
-
             <h3>Work Experience</h3>
             {user.employee1.jobs.map((el) => (
                 <div key={el.workID} className="experience-item">

@@ -1,11 +1,19 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../UserContext/UserContext";
-// import "./Education.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
 
 const SkillsWrapper = styled.div`
+font-family: Arial, sans-serif;
+
+h3 {
+ font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .skills {
   list-style: none; /* Remove default bullet points */
   padding: 0;
@@ -30,6 +38,36 @@ const SkillsWrapper = styled.div`
 .skills li:hover .action-icons {
   display: inline-block;
 }
+
+
+.action-icons {
+    display: none;
+    position: absolute;
+    right: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.action-icons .add,
+.action-icons .delete {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #25dac5;
+}
+
+.action-icons .delete {
+  color: red;
+}
+
+.action-icons .add:hover {
+  color: green;
+}
+
+.action-icons .delete:hover {
+  color: darkred;
+}
+
 `
 
 
