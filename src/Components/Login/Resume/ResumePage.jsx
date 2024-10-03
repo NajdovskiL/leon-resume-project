@@ -6,7 +6,32 @@ import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import jsPDF from "jspdf"; // Import jsPDF
 import html2canvas from "html2canvas"; // Import html2canvas
-import "./Title.css";
+import Skills from "./Skills";
+import Languages from "./Languages";
+import styled from "styled-components";
+
+const ResumePageWrapper = styled.div`
+ width: 70%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px lightgray;
+  margin: 10px auto;
+
+  .div-flex {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  
+  .work-experience {
+  flex-basis: 50%;
+}
+
+.education {
+  flex-basis: 50%;
+}
+
+`
+
 
 
 const ResumePage = () => {
@@ -41,20 +66,22 @@ const ResumePage = () => {
     return (
         <div>
             <Provider >
-                <div className="ResumePage">
+                <ResumePageWrapper>
                     <NavBar download={handleDownload} />
                     <div ref={contentRef} style={{ padding: "20px" }}>
                         <Title />
                         <div className="div-flex">
                             <div className="education">
                                 <Education />
+                                <Skills />
+                                <Languages />
                             </div>
                             <div className="work-experience">
                                 <WorkExperience />
                             </div>
                         </div>
                     </div>
-                </div>
+                </ResumePageWrapper>
             </Provider>
         </div>
     )

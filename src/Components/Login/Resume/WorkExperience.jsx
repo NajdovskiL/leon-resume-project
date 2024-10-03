@@ -1,8 +1,154 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../UserContext/UserContext";
-import "./WorkExperience.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import styled from "styled-components";
+
+const WorkWrapper = styled.div`
+font-family: Arial, sans-serif;
+
+  h3 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Each job experience container */
+.experience-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.job-details h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.job-details h6 {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Flexbox to align the location and dates */
+.location-dates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.location-dates p {
+  margin: 0;
+  color: #777;
+}
+
+.date-from,
+.date-till {
+  color: #25dac5;
+}
+
+/* List styling */
+.ul-acomplishments {
+  list-style-type: square;
+  padding-left: 0;
+}
+
+.ul-acomplishments li {
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+  padding-right: 30px; /* Space for + and x buttons */
+  transition: background-color 0.3s ease;
+  list-style-position: inside;
+  text-align: left;
+}
+
+.ul-acomplishments li::marker {
+  font-size: 20px; /* Increase bullet size */
+  color: #25dac5; /* Set the bullet color */
+}
+
+.ul-acomplishments li:hover {
+  background-color: #f9f9f9;
+}
+
+.action-icons {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Hover to show + and x buttons */
+.ul-acomplishments li:hover .action-icons {
+  display: inline-block;
+}
+
+.action-icons .add,
+.action-icons .delete {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #25dac5;
+}
+
+.action-icons .delete {
+  color: red;
+}
+
+.action-icons .add:hover {
+  color: green;
+}
+
+.action-icons .delete:hover {
+  color: darkred;
+}
+
+/* Add transitions to smooth out hover effects */
+.action-icons span {
+  transition: color 0.3s ease;
+}
+
+.addwork {
+  width: 25%;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 15px;
+  border-radius: 100px;
+  border: 2px solid #ebeaed;
+  padding: 5px;
+  background-color: #25dac5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.deletework {
+  width: 25%;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 15px;
+  border-radius: 100px;
+  border: 2px solid #ebeaed;
+  padding: 5px;
+  background-color: #25dac5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.deletework:hover {
+  background-color: tomato;
+}
+`
 
 const WorkExperience = () => {
     const { elements } = useContext(UserContext)
@@ -139,7 +285,8 @@ const WorkExperience = () => {
 
 
     return (
-        <div className="work-experience">
+        <WorkWrapper>
+
             <h3>Work Experience</h3>
             {user.employee1.jobs.map((el) => (
                 <div key={el.workID} className="experience-item">
@@ -263,8 +410,7 @@ const WorkExperience = () => {
 
                 </div>
             ))}
-        </div>
-
+        </WorkWrapper>
     );
 };
 

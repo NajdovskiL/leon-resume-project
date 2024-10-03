@@ -1,8 +1,80 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../UserContext/UserContext";
-import "./Education.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import styled from "styled-components";
+
+const EducationWrapper = styled.div`
+.education-title {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.education-wrapper {
+  padding-top: 15px;
+  border-bottom: 2px solid #25dac5;
+  padding-bottom: 20px;
+}
+
+.education-main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.education-wrapper h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.education-wrapper h6 {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 0px;
+  font-family: Arial, sans-serif;
+}
+
+.education-wrapper p {
+  margin: 0;
+}
+
+.addEducation {
+  width: 20%;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 9px;
+  line-height: 15px;
+  border-radius: 100px;
+  border: 2px solid #ebeaed;
+  padding: 5px;
+  background-color: #25dac5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.deleteEducation {
+  width: 20%;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 9px;
+  line-height: 15px;
+  border-radius: 100px;
+  border: 2px solid #ebeaed;
+  padding: 5px;
+  background-color: #25dac5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.deleteEducation:hover {
+  background-color: tomato;
+}
+`
 
 
 const Education = () => {
@@ -11,29 +83,26 @@ const Education = () => {
     const setUser = elements.setUser
 
 
-    // Track the education entry and the specific field being edited
+
     const [editingEducationID, setEditingEducationID] = useState(null);
     const [editingField, setEditingField] = useState(null);
     const [editedValue, setEditedValue] = useState("");
-    const [editingSkillIndex, setEditingSkillIndex] = useState(null);
-    const [editingLanguageID, setEditingLanguageID] = useState(null);
-    const [editingLanguageField, setEditingLanguageField] = useState(null);
 
 
-    // Function to start editing a specific field of an education entry
+
     const handleEditField = (educationID, fieldName, currentValue) => {
-        setEditingEducationID(educationID); // Set the educationID being edited
-        setEditingField(fieldName); // Set which field is being edited
-        setEditedValue(currentValue); // Set the current value of that field
+        setEditingEducationID(educationID);
+        setEditingField(fieldName);
+        setEditedValue(currentValue);
     };
 
 
-    // Function to handle input changes
+
     const handleInputChange = (e) => {
         setEditedValue(e.target.value);
     };
 
-    // Save the edited value for the specific field on blur
+
     const handleBlur = (educationID, fieldName) => {
         setUser((prevUser) => ({
             ...prevUser,
@@ -44,24 +113,8 @@ const Education = () => {
                 ),
             },
         }));
-        setEditingEducationID(null); // Stop editing mode
-        setEditingField(null); // Reset field being edited
-    };
-
-    const handleEditSkill = (index, currentValue) => {
-        setEditingSkillIndex(index);
-        setEditedValue(currentValue);
-    };
-
-    const handleSkillBlur = (index) => {
-        setUser((prevUser) => ({
-            ...prevUser,
-            employee1: {
-                ...prevUser.employee1,
-                skills: prevUser.employee1.skills.map((el, i) => (i === index ? editedValue : el)),
-            },
-        }));
-        setEditingSkillIndex(null); // Stop editing mode
+        setEditingEducationID(null);
+        setEditingField(null);
     };
 
 
@@ -95,83 +148,10 @@ const Education = () => {
         }))
     }
 
-    const addSkill = () => {
-        const newSkill = "Add Skill"
 
-        setUser((prevUser) => ({
-            ...prevUser,
-            employee1: {
-                ...prevUser.employee1,
-                ...prevUser.employee1.jobs,
-                ...prevUser.employee1.education,
-                skills: [...prevUser.employee1.skills, newSkill]
-            }
-        }))
-    }
-
-    const deleteSkill = (indextoDelete) => {
-        setUser((prevUser) => ({
-            ...prevUser,
-            employee1: {
-                ...prevUser.employee1,
-                skills: prevUser.employee1.skills.filter((_, index) => index !== indextoDelete)
-            }
-        }))
-    }
-
-    const handleEditLanguage = (languageID, fieldName, currentValue) => {
-        setEditingLanguageID(languageID);
-        setEditingLanguageField(fieldName);
-        setEditedValue(currentValue);
-    };
-
-    const handleLanguageBlur = (languageID, fieldName) => {
-        setUser((prevUser) => ({
-            ...prevUser,
-            employee1: {
-                ...prevUser.employee1,
-                languages: prevUser.employee1.languages.map((el) =>
-                    el.languageID === languageID ? { ...el, [fieldName]: editedValue } : el
-                ),
-            },
-        }));
-        setEditingLanguageID(null);
-        setEditingLanguageField(null);
-    };
-
-    const addLanguage = () => {
-        const newLanguage = {
-            language: "Language",
-            proficiency: "Elementary Proficiency",
-            languageID: user.employee1.languages.length + 1
-        }
-        setUser((prevUser) => ({
-            ...prevUser,
-            employee1: {
-                ...prevUser.employee1,
-                languages: [...prevUser.employee1.languages, newLanguage], // Add new language
-            },
-        }));
-    }
-
-    const deleteLanguage = (indexToDelete) => {
-        setUser((prevUser) => {
-            const updatedLanguages = prevUser.employee1.languages
-                .filter((_, index) => index !== indexToDelete) // Remove the selected language
-                .map((el, index) => ({ ...el, languageID: index + 1 })); // Reassign languageIDs to be sequential
-
-            return {
-                ...prevUser,
-                employee1: {
-                    ...prevUser.employee1,
-                    languages: updatedLanguages, // Update with the new languages array
-                },
-            };
-        });
-    };
 
     return (
-        <div>
+        <EducationWrapper>
             <h3 className="education-title">Education</h3>
             <div className="education-main">
                 {user.employee1.education.map((el, i) => (
@@ -182,7 +162,7 @@ const Education = () => {
                                 type="text"
                                 value={editedValue}
                                 onChange={handleInputChange}
-                                onBlur={() => handleBlur(el.educationID, "title")} // Save on blur
+                                onBlur={() => handleBlur(el.educationID, "title")}
                                 placeholder="Study Program"
                                 autoFocus
                             />
@@ -196,7 +176,7 @@ const Education = () => {
                                 type="text"
                                 value={editedValue}
                                 onChange={handleInputChange}
-                                onBlur={() => handleBlur(el.educationID, "school")} // Save on blur
+                                onBlur={() => handleBlur(el.educationID, "school")}
                                 placeholder="School"
                                 autoFocus
                             />
@@ -210,7 +190,7 @@ const Education = () => {
                                 type="text"
                                 value={editedValue}
                                 onChange={handleInputChange}
-                                onBlur={() => handleBlur(el.educationID, "city")} // Save on blur
+                                onBlur={() => handleBlur(el.educationID, "city")}
                                 placeholder="City"
                                 autoFocus
                             />
@@ -224,7 +204,7 @@ const Education = () => {
                                 type="text"
                                 value={editedValue}
                                 onChange={handleInputChange}
-                                onBlur={() => handleBlur(el.educationID, "date")} // Save on blur
+                                onBlur={() => handleBlur(el.educationID, "date")}
                                 placeholder="Date"
                                 autoFocus
                             />
@@ -237,72 +217,8 @@ const Education = () => {
                     </div>
                 ))}
 
-                <h3 className="education-title">Expertise</h3>
-                <ul className="skills">
-                    {user.employee1.skills.map((el, index) => (
-                        <li key={index}>
-                            {editingSkillIndex === index && elements.edit ? (
-                                <input
-                                    type="text"
-                                    value={editedValue}
-                                    onChange={(e) => setEditedValue(e.target.value)} // Handle input change
-                                    onBlur={() => handleSkillBlur(index)} // Save on blur
-                                    placeholder="Skill"
-                                    autoFocus
-                                />
-                            ) : (
-                                <span className="skills-span" onClick={() => handleEditSkill(index, el)}> {el}</span>
-                            )}
-                            <span className="action-icons">
-                                {elements.edit && <FontAwesomeIcon className="add" icon={faPlus} onClick={() => addSkill()} />}
-                                {elements.edit && <FontAwesomeIcon className="delete" icon={faXmark} onClick={() => deleteSkill(index)} />}
-                            </span>
-
-                        </li>
-                    ))}
-
-                </ul>
-
-                <h3 className="languages-title">Languages</h3>
-                <ul className="languages">
-                    {user.employee1.languages.map((el, index) => (
-                        <li key={index}>
-                            {editingLanguageID === el.languageID && editingLanguageField === "language" && elements.edit ? (
-                                <input
-                                    type="text"
-                                    value={editedValue}
-                                    onChange={handleInputChange}
-                                    onBlur={() => handleLanguageBlur(el.languageID, "language")}
-                                    autoFocus
-                                />
-                            ) : (
-                                <span onClick={() => handleEditLanguage(el.languageID, "language", el.language)}>{el.language}</span>
-
-                            )}
-
-
-                            {editingLanguageID === el.languageID && editingLanguageField === "proficiency" && elements.edit ? (
-                                <input
-                                    type="text"
-                                    value={editedValue}
-                                    onChange={handleInputChange}
-                                    onBlur={() => handleLanguageBlur(el.languageID, "proficiency")}
-                                    autoFocus
-                                />
-                            ) : (
-                                <span className="proficiency" onClick={() => handleEditLanguage(el.languageID, "proficiency", el.proficiency)}> Proficiency: {el.proficiency}</span>
-
-                            )}
-                            <span className="action-icons">
-                                {elements.edit && <FontAwesomeIcon icon={faPlus} className="add" onClick={() => addLanguage()} />}
-                                {elements.edit && <FontAwesomeIcon icon={faXmark} className="delete" onClick={() => deleteLanguage(index)} />}
-                            </span>
-                        </li>
-
-                    ))}
-                </ul>
             </div>
-        </div>
+        </EducationWrapper>
     )
 }
 

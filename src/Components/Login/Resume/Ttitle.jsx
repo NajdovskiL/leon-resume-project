@@ -2,7 +2,63 @@ import React, { useContext, useState } from "react";
 import UserContext from "../UserContext/UserContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faCity, faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
-import "./Title.css";
+import styled from "styled-components";
+
+const TitleWrapper = styled.div`
+ display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #25dac5;
+
+  .profile-text {
+  flex-basis: 40%;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.profile-text h4 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.title-desc {
+  color: #25dac5;
+  font-weight: 700;
+  margin-top: 0px;
+}
+
+.title-profile {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.img {
+  flex-basis: 30%;
+}
+
+.img img {
+  border-radius: 50%;
+}
+
+.info {
+  flex-basis: 30%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.info ul li {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.info ul li svg {
+  margin-left: 10px;
+}
+
+textarea {
+  width: 100%;
+}
+`
 
 const Title = () => {
   const { elements } = useContext(UserContext);
@@ -67,7 +123,7 @@ const Title = () => {
   };
 
   return (
-    <div className="Title">
+    <TitleWrapper>
       <div className="profile-text">
         {/* Full Name */}
         {editableField === "fullname" && elements.edit ? (
@@ -206,7 +262,7 @@ const Title = () => {
           )}
         </ul>
       </div>
-    </div>
+    </TitleWrapper>
   );
 };
 
