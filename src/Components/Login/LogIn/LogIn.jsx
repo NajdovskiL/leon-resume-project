@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 
@@ -57,7 +57,7 @@ const LogIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [isPasswordVisible] = useState(false)
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
 
   const OnlogInSubmit = (e) => {
@@ -76,7 +76,7 @@ const LogIn = () => {
 
     if (storedEmail === trimmedEmail && storedPassword === trimmedPassword) {
       console.log("Login successful, navigating to home...");
-      navigate(`/home/${storedName}`);
+      navigate(`/home/${storedName.replace(/\s+/g, '-')}`);
     } else {
       console.log("Login failed, incorrect email or password");
     }

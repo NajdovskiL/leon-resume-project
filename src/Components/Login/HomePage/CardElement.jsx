@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const CardWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
 
 .card {
   width: 300px;
@@ -53,20 +56,34 @@ const CardWrapper = styled.div`
 .card-button:hover {
   background-color: #0056b3;
 }
+
+a {
+text-decoration: none;
+color: white;
+}
 `
 
 
-const CardElement = props => {
+const CardElement = () => {
   return (
     <CardWrapper>
       <div className="card">
-        <img src={props.img} alt="Card" className="card-image" />
+        <img src="https://img.freepik.com/free-psd/clean-modern-resume-cv-template_237398-297.jpg" alt="ResumeCard" className="card-image" />
         <div className="card-content">
-          <h2 className="card-title">{props.title}</h2>
-          <p className="card-description">{props.desc}</p>
+          <h2 className="card-title">Resume</h2>
+          <p className="card-description">Here you can see my resume, also you can see more functionality. You can edit, change pictures, and also download it!</p>
           <Link to="/home/resume">
             <button className="card-button">Learn More</button>
           </Link>
+        </div>
+      </div>
+
+      <div className="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwKtLxzyfxxPaYKsCm3iBWsFzQVfY5utYNOA&s" alt="GitHubCard" className="card-image" />
+        <div className="card-content">
+          <h2 className="card-title">GitHub</h2>
+          <p className="card-description">If you want to see the code of this project, feel free to press on the button. And remember this is my first project!</p>
+          <button className="card-button"> <a href="https://github.com/NajdovskiL" target="_blank" rel="noreferrer" >See Code!</a></button>
         </div>
       </div>
     </CardWrapper>

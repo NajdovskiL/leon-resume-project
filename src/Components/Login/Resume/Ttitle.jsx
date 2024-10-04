@@ -5,10 +5,12 @@ import { faPhone, faEnvelope, faCity, faBirthdayCake } from '@fortawesome/free-s
 import styled from "styled-components";
 
 const TitleWrapper = styled.div`
- font-family: Arial, sans-serif;
- display: flex;
+  font-family: Arial, sans-serif;
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 14px;
+  line-height: 1.5;
   border-bottom: 3px solid #25dac5;
 
   .profile-text {
