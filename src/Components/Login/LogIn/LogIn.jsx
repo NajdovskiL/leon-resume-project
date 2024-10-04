@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const LogInWrapper = styled.div`
 
@@ -50,6 +52,25 @@ input {
  color: #4c00b4;
  cursor: pointer;
  }
+
+ .input-password {
+  position: relative;
+  display: 70%;
+}
+
+.psw-icon {
+    position: absolute;
+    right: 80px;
+    top: 77%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #666;
+}
+
+.psw-icon:hover {
+  color: #25DAC5;
+}
+
 `
 
 
@@ -59,6 +80,11 @@ const LogIn = () => {
   const [password, setPassword] = useState("")
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
+  const storedPassword = JSON.parse(localStorage.getItem("newPsw") || '""').trim();
 
   const OnlogInSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +113,14 @@ const LogIn = () => {
     <LogInWrapper>
       <form onSubmit={OnlogInSubmit}>
         <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type={isPasswordVisible ? 'text' : 'password'} placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <div className="input-password">
+          <input type={isPasswordVisible ? 'text' : 'password'} placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <FontAwesomeIcon
+            className="psw-icon"
+            icon={isPasswordVisible ? faEyeSlash : faEye}
+            onClick={togglePasswordVisibility}
+          />
+        </div>
         <div className="forgot-password">Forgot Password?  <span>Click Here!</span></div>
         <button type="submit">Login</button>
       </form>

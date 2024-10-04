@@ -39,6 +39,14 @@ h3 {
   display: inline-block;
 }
 
+.skills input {
+  margin-left: 10px; /* Add small space between text and buttons */
+  color: white; /* Style for links */
+  background-color: #25dac5;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 
 .action-icons {
     display: none;

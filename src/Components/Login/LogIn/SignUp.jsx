@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -38,13 +40,37 @@ input {
   padding: 5px;
   padding-right: 10px;
 }
+
+.input-password {
+  position: relative;
+  display: 70%;
+}
+
+.psw-icon {
+    position: absolute;
+    right: 80px;
+    top: 77%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #666;
+}
+
+.psw-icon:hover {
+  color: #25DAC5;
+}
 `
 
 
 const SignUp = () => {
-   const [name, setName] = useState("");
-   const [password, setPassword] = useState("");
-   const [email, setEmail] = useState("")
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
 
 
   const onChange = (e) => {
@@ -57,22 +83,35 @@ const SignUp = () => {
       setName("")
       setPassword("")
       setEmail("")
-    }  
+    }
   }
 
 
-    return (
-        <SignUpWrapper>
-        <form onSubmit={onChange}> 
-            <input type="text" placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button>Create an Account</button>
-        </form>
-        </SignUpWrapper>
-       
-       
-    )
+  return (
+    <SignUpWrapper>
+      <form onSubmit={onChange}>
+        <input type="text" placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <div className="input-password">
+          <input
+            type={isPasswordVisible ? "text" : "password"}
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <FontAwesomeIcon
+            className="psw-icon"
+            icon={isPasswordVisible ? faEyeSlash : faEye}
+            onClick={togglePasswordVisibility}
+          />
+        </div>
+        <button>Create an Account</button>
+      </form>
+    </SignUpWrapper>
+
+
+  )
 }
 
 
