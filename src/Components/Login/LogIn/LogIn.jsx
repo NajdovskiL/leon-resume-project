@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -84,7 +84,6 @@ const LogIn = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const storedPassword = JSON.parse(localStorage.getItem("newPsw") || '""').trim();
 
   const OnlogInSubmit = (e) => {
     e.preventDefault();
