@@ -212,9 +212,10 @@ const Education = () => {
                         ) : (
                             <p onClick={() => handleEditField(el.educationID, "date", el.date)}>Date: {el.date}</p>
                         )}
-
-                        {elements.edit && <button className="addEducation" onClick={() => addEducation()}>Add Education</button>}
-                        {elements.edit && <button className="deleteEducation" onClick={() => deleteEducation(el.educationID)}>Delete Education</button>}
+                        <div>
+                            {elements.edit && <button className="addEducation" onClick={() => addEducation()}>Add Education</button>}
+                            {elements.edit && <button className="deleteEducation" onClick={() => deleteEducation(el.educationID)}>Delete Education</button>}
+                        </div>
                     </div>
                 ))}
 

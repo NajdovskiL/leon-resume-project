@@ -7,6 +7,10 @@ import styled from "styled-components";
 const WorkWrapper = styled.div`
 font-family: Arial, sans-serif;
 
+ .input-width {
+   width: 100%;
+ }
+
   h3 {
   font-size: 24px;
   color: #333;
@@ -148,6 +152,7 @@ font-family: Arial, sans-serif;
 .deletework:hover {
   background-color: tomato;
 }
+
 `
 
 const WorkExperience = () => {
@@ -299,7 +304,7 @@ const WorkExperience = () => {
                                 onBlur={() => handleSaveField(el.workID, "jobtitle")}
                                 onKeyPress={(e) => handleKeyPress(e, el.workID, "jobtitle")}
                                 autoFocus
-                                className="input-workexperience"
+                                className="input-width"
                             />
                         ) : (
                             <h4 onClick={() => handleEditClick(el.workID, "jobtitle", el.jobtitle)}>
@@ -316,6 +321,8 @@ const WorkExperience = () => {
                                 onBlur={() => handleSaveField(el.workID, "company")}
                                 onKeyPress={(e) => handleKeyPress(e, el.workID, "company")}
                                 autoFocus
+                                className="input-width"
+
                             />
                         ) : (
                             <h6 onClick={() => handleEditClick(el.workID, "company", el.company)}>
@@ -385,6 +392,7 @@ const WorkExperience = () => {
                                         onBlur={() => handleSaveField(el.workID, "acomplishments", i)}
                                         onKeyPress={(e) => handleKeyPress(e, el.workID, "acomplishments", i)}
                                         autoFocus
+                                        className="input-width"
                                     />
                                 ) : (
                                     <span onClick={() => handleEditClick(el.workID, "acomplishments", acomplishment, i)}>
