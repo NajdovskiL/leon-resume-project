@@ -73,7 +73,7 @@ const CardWrapper = styled.div`
 const Card = () => {
 
 
-  const [action, setAction] = useState("Sign Up")
+  const [action, setAction] = useState("Log In")
 
   const handleSignUpClick = () => {
     setAction("Sign Up");
@@ -87,11 +87,11 @@ const Card = () => {
     <CardWrapper>
       <div className="card-box" >
         <div className="title-box">
-          <div className={action === "Sign Up" ? "sign-box" : "grey"} onClick={handleSignUpClick}>
-            <h4>SIGN UP</h4>
-          </div>
           <div className={action === "Log In" ? "log-box" : "grey"} onClick={handleLogInClick}>
             <h4>LOGIN</h4>
+          </div>
+          <div className={action === "Sign Up" ? "sign-box" : "grey"} onClick={handleSignUpClick}>
+            <h4>SIGN UP</h4>
           </div>
         </div>
         {action === "Sign Up" && <SignUp />}

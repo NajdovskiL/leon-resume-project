@@ -31,7 +31,7 @@ const Heading = () => (
       Hi there, I am Leon and I am a Frontend Developer
     </h1>
     <p>
-      Hello HR Manager, I am Leon Najdovski and this is my project. Please write your name so you can see my Project and Resume.
+      Dear Viewer, welcome to my Resume. I am Leon Najdovski and in front of you is my first project! This Sign Up form is part of the project itself, so please create account so you can proceed and see my Resume.
     </p>
   </HeadingWrapper>
 

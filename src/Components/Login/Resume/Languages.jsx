@@ -115,7 +115,7 @@ const Languages = () => {
             ...prevUser,
             employee1: {
                 ...prevUser.employee1,
-                languages: [...prevUser.employee1.languages, newLanguage], // Add new language
+                languages: [...prevUser.employee1.languages, newLanguage],
             },
         }));
     }
@@ -123,14 +123,13 @@ const Languages = () => {
     const deleteLanguage = (indexToDelete) => {
         setUser((prevUser) => {
             const updatedLanguages = prevUser.employee1.languages
-                .filter((_, index) => index !== indexToDelete) // Remove the selected language
-                .map((el, index) => ({ ...el, languageID: index + 1 })); // Reassign languageIDs to be sequential
-
+                .filter((_, index) => index !== indexToDelete)
+                .map((el, index) => ({ ...el, languageID: index + 1 }));
             return {
                 ...prevUser,
                 employee1: {
                     ...prevUser.employee1,
-                    languages: updatedLanguages, // Update with the new languages array
+                    languages: updatedLanguages,
                 },
             };
         });
@@ -157,16 +156,20 @@ const Languages = () => {
 
 
                         {editingLanguageID === el.languageID && editingLanguageField === "proficiency" && elements.edit ? (
-                            <input
-                                type="text"
-                                value={editedValue}
+                            <select value={el.proficiency}
                                 onChange={handleInputChange}
                                 onBlur={() => handleLanguageBlur(el.languageID, "proficiency")}
                                 autoFocus
-                            />
+                            >
+                                <option value="">Select Proficiency</option>
+                                <option value="A1">A1</option>
+                                <option value="A2">A2</option>
+                                <option value="B1">B1</option>
+                                <option value="B2">B2</option>
+                                <option value="C1">C1</option>
+                            </select>
                         ) : (
                             <span className="proficiency" onClick={() => handleEditLanguage(el.languageID, "proficiency", el.proficiency)}> Proficiency: {el.proficiency}</span>
-
                         )}
                         <span className="action-icons">
                             {elements.edit && <FontAwesomeIcon icon={faPlus} className="add" onClick={() => addLanguage()} />}

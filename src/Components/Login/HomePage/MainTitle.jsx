@@ -21,21 +21,18 @@ color: #1E0E62;
 
  }
 
- h5 {
+ p {
 margin: 0;
 font-family: 'Inter';
 font-style: normal;
-font-size: 22px;
+font-size: 16px;
 line-height: 32px;
 /* or 145% */
 text-align: center;
-
-/* Colors / Text */
-color: rgba(21, 20, 57, 0.4);
-
 mix-blend-mode: normal;
 opacity: 0.7;
-
+width: 70%;
+margin: 0 auto;
 }
 `
 const MainTitle = props => {
@@ -43,7 +40,7 @@ const MainTitle = props => {
     return (
         <TitleWrapper>
             <h3>Welcome on my 1st project {props.name}</h3>
-            <h5>Here you can find everything that I learned in the past 12 months</h5>
+            <p>Thank you for creating account. On your left you will find my resume. Inside you will find more functionalities. Please free to play with them. And on your right you can see exactly this code.</p>
         </TitleWrapper>
     )
 }

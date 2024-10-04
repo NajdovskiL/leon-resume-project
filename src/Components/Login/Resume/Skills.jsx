@@ -51,7 +51,7 @@ h3 {
 .action-icons {
     display: none;
     position: absolute;
-    right: 150px;
+    right: 50px;
     top: 50%;
     transform: translateY(-50%);
   }
