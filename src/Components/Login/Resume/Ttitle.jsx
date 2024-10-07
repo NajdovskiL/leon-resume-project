@@ -41,6 +41,9 @@ const TitleWrapper = styled.div`
 
 .img img {
   border-radius: 50%;
+  width: 250px;
+  height: 250px;
+   object-fit: cover;
 }
 
 .info {
@@ -183,7 +186,7 @@ const Title = () => {
               src={user.employee1.employeProfile.img}
               alt="Profile"
               onClick={() => document.getElementById("fileInput").click()}
-              style={{ cursor: 'pointer', width: '150px', height: '150px' }} // Example styling
+              style={{ cursor: elements.edit ? "pointer" : "none" }}
             />
             <input
               id="fileInput"
@@ -191,6 +194,7 @@ const Title = () => {
               accept="image/*"
               onChange={handleImageChange}
               style={{ display: 'none' }} // Hide the file input
+
             />
           </>
         ) : (

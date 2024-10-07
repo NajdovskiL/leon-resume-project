@@ -162,23 +162,24 @@ const WorkExperience = () => {
 
     const [editableField, setEditableField] = useState({
         workID: null,
-        field: null, // can be jobtitle, company, city, datefrom, datetill, accomplishment
-        index: null, // specific index for accomplishments
+        field: null,
+        index: null,
     });
     const [editedValue, setEditedValue] = useState("");
 
-    // Function to handle setting the field as editable
+
+
     const handleEditClick = (workID, field, value, index = null) => {
-        setEditableField({ workID, field, index }); // Set the clicked field as editable
-        setEditedValue(value); // Set the current value in input
+        setEditableField({ workID, field, index });
+        setEditedValue(value);
     };
 
-    // Function to handle input change
+
     const handleInputChange = (e) => {
-        setEditedValue(e.target.value); // Update input field value
+        setEditedValue(e.target.value);
     };
 
-    // Function to handle saving the edited value
+
     const handleSaveField = (workID, field, index = null) => {
         setUser((prevUser) => ({
             ...prevUser,
@@ -196,7 +197,7 @@ const WorkExperience = () => {
                         } else {
                             return {
                                 ...job,
-                                [field]: editedValue, // Update other fields like jobtitle, company, etc.
+                                [field]: editedValue,
                             };
                         }
                     }
@@ -204,17 +205,17 @@ const WorkExperience = () => {
                 }),
             },
         }));
-        setEditableField({ workID: null, field: null, index: null }); // Reset editable state
+        setEditableField({ workID: null, field: null, index: null });
     };
 
-    // Handle "Enter" key or blur event to save changes
+
     const handleKeyPress = (e, workID, field, index = null) => {
         if (e.key === "Enter") {
             handleSaveField(workID, field, index);
         }
     };
 
-    // Function to handle adding a new accomplishment
+
     const handleAddAccomplishment = (workID) => {
         const newAccomplishment = "Accomplishment";
         setUser((prevUser) => ({
@@ -234,7 +235,7 @@ const WorkExperience = () => {
         }));
     };
 
-    // Function to handle deleting an accomplishment
+
     const handleDeleteAccomplishment = (workID, index) => {
         setUser((prevUser) => ({
             ...prevUser,
@@ -243,7 +244,7 @@ const WorkExperience = () => {
                 jobs: prevUser.employee1.jobs.map((job) => {
                     if (job.workID === workID) {
                         const updatedAccomplishments = [...job.acomplishments];
-                        updatedAccomplishments.splice(index, 1); // Remove the accomplishment at the specific index
+                        updatedAccomplishments.splice(index, 1);
                         return {
                             ...job,
                             acomplishments: updatedAccomplishments,
@@ -336,7 +337,7 @@ const WorkExperience = () => {
                         {/* Date From */}
                         {editableField.workID === el.workID && editableField.field === "datefrom" && elements.edit ? (
                             <input
-                                type="text"
+                                type="date"
                                 value={editedValue}
                                 onChange={handleInputChange}
                                 onBlur={() => handleSaveField(el.workID, "datefrom")}
@@ -352,7 +353,7 @@ const WorkExperience = () => {
                         {/* Date Till */}
                         {editableField.workID === el.workID && editableField.field === "datetill" && elements.edit ? (
                             <input
-                                type="text"
+                                type="date"
                                 value={editedValue}
                                 onChange={handleInputChange}
                                 onBlur={() => handleSaveField(el.workID, "datetill")}

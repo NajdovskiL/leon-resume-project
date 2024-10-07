@@ -37,7 +37,7 @@ let editData =
             },
         ],
 
-        skills: ["Skill 1,", "Skill 2", "Skill 3"],
+        skills: ["Skill 1", "Skill 2", "Skill 3"],
 
         languages: [
             { language: "Language", proficiency: "Elementary Proficiency", languageID: 1 },

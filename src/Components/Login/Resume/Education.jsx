@@ -202,7 +202,7 @@ const Education = () => {
                         {/* {date} */}
                         {editingEducationID === el.educationID && editingField === "date" && elements.edit ? (
                             <input
-                                type="text"
+                                type="date"
                                 value={editedValue}
                                 onChange={handleInputChange}
                                 onBlur={() => handleBlur(el.educationID, "date")}
