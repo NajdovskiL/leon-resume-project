@@ -60,7 +60,7 @@ input {
 
 .psw-icon {
     position: absolute;
-    right: 80px;
+    right: 95px;
     top: 77%;
     transform: translateY(-50%);
     font-size: 18px;
@@ -101,7 +101,7 @@ const LogIn = () => {
 
     if (storedEmail === trimmedEmail && storedPassword === trimmedPassword) {
       console.log("Login successful, navigating to home...");
-      navigate(`/home/${storedName.replace(/\s+/g, '-')}`);
+      navigate("/home");
     } else {
       console.log("Login failed, incorrect email or password");
     }

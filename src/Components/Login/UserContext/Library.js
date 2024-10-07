@@ -9,7 +9,7 @@ let CVdata =
             profile: " Experienced digital media and technology professional with 4 years of experience in sales, operations, and digital strategy. Proven track record in leading web development projects, managing cross-functional teams, and delivering high-quality results in a fast-paced environment. Skilled in content management, project management, and technical communication with a strong understanding of user needs and regulatory requirements",
             img: "https://media.licdn.com/dms/image/C5603AQGHBCE6n6QgIg/profile-displayphoto-shrink_200_200/0/1649347497755?e=2147483647&v=beta&t=M503-xckU57vZVFDe3m08QLipjkgJ0BGIi5fWXsTvQ4",
             email: "najdovskileon23@gmail.com",
-            phone: +38978834318,
+            phone: "+43 664 78348991",
             location: "Vienna",
             birthday: "17.10.1994",
         },
@@ -17,11 +17,11 @@ let CVdata =
         jobs: [
             {
                 workID: 1,
-                jobtitle: "Bussines Developer",
+                jobtitle: "Co-Founder & Operation Manager",
                 company: "FoodGuru MK",
                 city: "Skopje",
-                datefrom: "12/14/2002",
-                datetill: "22/12/2032",
+                datefrom: "01/02/2020",
+                datetill: "01/10/2022",
                 acomplishments: [
                     " Technical and Operational Management: Supervised the daily   operations of the food delivery service, optimizing processes to ensure efficiency and quality. Implemented technology-drivensolutions to enhance service delivery.",
                     " Team Leadership: Recruited, trained, and managed a team of operational staff, ensuring alignment with the company’s goals and maintaining high performance levels.",
@@ -34,11 +34,11 @@ let CVdata =
             {
 
                 workID: 2,
-                jobtitle: "Co-Founder & CEO | FitGuru MK",
+                jobtitle: "Co-Founder & CEO",
                 company: "FitGuru MK",
                 city: "Skopje",
-                datefrom: "12/14/2002",
-                datetill: "22/12/2032",
+                datefrom: "01/11/2021",
+                datetill: "01/10/2023",
                 acomplishments: [
                     " Strategic Leadership: Defined and communicated the strategic vision for the company, aligning operations with short-term and long-term goals for growth and market leadership.",
                     "Business Development: Identified and pursued new business opportunities and partnerships, expanding the company's market reach and enhancing custome engagement",

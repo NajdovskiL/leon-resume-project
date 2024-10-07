@@ -48,7 +48,7 @@ input {
 
 .psw-icon {
     position: absolute;
-    right: 80px;
+    right: 95px;
     top: 77%;
     transform: translateY(-50%);
     font-size: 18px;
@@ -79,7 +79,7 @@ const SignUp = () => {
       localStorage.setItem("newName", JSON.stringify(name));
       localStorage.setItem("newPsw", JSON.stringify(password));
       localStorage.setItem("newEmail", JSON.stringify(email));
-      alert("Thank you for creating account. Normally this should be send to your email, but this is demo version.")
+      alert("Thank you for creating account. Normally this should be sent to your email, but this is demo version.")
       setName("")
       setPassword("")
       setEmail("")
@@ -88,7 +88,7 @@ const SignUp = () => {
 
 
   return (
-    <SignUpWrapper>
+    <SignUpWrapper >
       <form onSubmit={onChange}>
         <input type="text" placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
         <input type="email" placeholder="Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -109,8 +109,6 @@ const SignUp = () => {
         <button>Create an Account</button>
       </form>
     </SignUpWrapper>
-
-
   )
 }
 
