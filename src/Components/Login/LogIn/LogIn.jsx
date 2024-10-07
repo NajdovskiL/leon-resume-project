@@ -91,7 +91,7 @@ const LogIn = () => {
 
     const storedEmail = JSON.parse(localStorage.getItem("newEmail") || '""').trim();
     const storedPassword = JSON.parse(localStorage.getItem("newPsw") || '""').trim();
-    const storedName = JSON.parse(localStorage.getItem("newName") || '""').trim();
+
 
 
     const trimmedEmail = email.trim();
